@@ -1,0 +1,194 @@
+body {
+  /* Đường dẫn tính từ file style.css nằm trong thư mục scr */
+  background: url("biencua\ \(1\).jpg");
+
+  /* Các thuộc tính hỗ trợ hiển thị hình nền đẹp hơn */
+  background-size: cover; /* Phủ kín màn hình */
+  background-position: center; /* Canh giữa hình ảnh */
+  background-repeat: no-repeat; /* Không lặp lại ảnh */
+  height: 100vh; /* Chiều cao tối thiểu bằng màn hình */
+  background-attachment: fixed;
+}
+
+.navbar {
+  background-color: transparent !important;
+}
+
+/* Chỉ áp dụng khi màn hình từ 992px trở lên (giao diện ngang) */
+@media (min-width: 992px) {
+  /* Tăng khoảng cách giữa các mục menu */
+  #navbarSupportedContent .navbar-nav {
+    gap: 50px; /* Tăng giảm số này để chỉnh khoảng cách thưa ra theo ý muốn */
+    font-size: 1.5vw; /* Chỉnh kích thước chữ to hơn */
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse .navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .navbar-collapse .navbar-nav {
+    margin-left: 90px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Tăng khoảng cách giữa các mục menu */
+  #navbarSupportedContent .navbar-nav /*# là ID trong HTML*/ {
+    margin-top: 10px;
+    gap: 10px; /* Tăng giảm số này để chỉnh khoảng cách thưa ra theo ý muốn */
+    font-size: 15px; /* Chỉnh kích thước chữ to hơn */
+    font-weight: 400;
+  }
+}
+
+/* Hiệu ứng khi rê chuột vào hoặc bấm vào các mục menu */
+.navbar-nav .nav-link:hover,/*hiệu ứng*/
+.navbar-nav .nav-link:focus/*nhưng chỉ khi người dùng bấm/ rê chuột vào thôi*/ {
+  border-radius: 30px;
+  padding: 8px 20px; /*trên dưới, trái phải*/
+  transition: all 0.4s ease;
+  display: inline-block;
+  width: fit-content;
+  background-color: #667d8a;
+  color: white;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-link:hover,/*hiệu ứng*/
+.navbar-nav .nav-link:focus/*nhưng chỉ khi người dùng bấm/ rê chuột vào thôi*/ {
+    border-radius: 30px;
+    width: 100%;
+    transition: all 0.4s ease;
+    background-color: #667d8a;
+    color: white;
+  }
+}
+
+@font-face {
+  font-family: "Butterpop";
+  src: url("Butterpop.ttf") format("truetype");
+}
+
+h1 {
+  font-family: Butterpop;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 10vw;
+  color: #586971;
+  text-shadow: 0.4vw 0.4vw 0.2vw rgb(215, 203, 203);
+}
+
+.navbar-brand {
+  font-family: Butterpop;
+  color: #586971;
+  text-shadow: 1px 1px 1px rgb(215, 203, 203);
+}
+
+p {
+  text-align: center;
+  padding: 6.7px;
+}
+
+.btn.btn-outline {
+  border-color: #586971;
+}
+
+.btn.btn-outline:hover {
+  border-color: #586971;
+  background-color: #586971 !important;
+  transition: 0.3s;
+}
+
+@media (min-width: 1500px) {
+  .container {
+    gap: 50px;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: center;
+    color: white;
+    width: 25vw;
+    height: 15vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    gap: 50px;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: center;
+    color: white;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    gap: 50px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 2fr;
+    justify-items: center;
+    padding: 10px 20px;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+  }
+}
+
+.card-btn {
+  background-color: #667d8a;
+  border-color: #667d8a;
+  color: #ffffff;
+  width: 60%;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card-btn:hover {
+  background-color: #556873 !important; /* Màu tối hơn một chút khi hover cho đẹp mắt */
+  border-color: #556873 !important;
+  transform: translateY(-3px) !important;
+}
+
+.content-box {
+  background: rgba(156, 153, 153, 0.532);
+  border: 2px solid rgba(255, 255, 255, 0.43);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(2px);
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.domdom {
+  text-align: left;
+}
+.skibidi {
+  font-family: Butterpop;
+  color: #586971;
+  text-shadow: 1px 1px white;
+}

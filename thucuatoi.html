@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>thalapsy</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="thu.css" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+      }
+      .wrapper-center {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .thu-list-card {
+        width: 92%;
+        max-width: 1400px;
+        height: 88vh;
+        background: #0d0d0dcc;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+        color: #eee;
+        padding: 35px 40px;
+        overflow-y: auto;
+      }
+
+      .thu-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 30px;
+      }
+      .thu-avatar {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: #ccc;
+        flex-shrink: 0;
+      }
+      .thu-close {
+        margin-left: auto;
+        color: #fff;
+        font-size: 30px;
+        text-decoration: none;
+        line-height: 1;
+      }
+
+      .thu-section-title {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        margin: 30px 0 15px;
+      }
+
+      .thu-scroll-row {
+        display: flex;
+        gap: 18px;
+        overflow-x: auto;
+        padding-bottom: 15px;
+      }
+      .thu-scroll-row::-webkit-scrollbar {
+        height: 4px;
+      }
+      .thu-scroll-row::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 2px;
+      }
+      .thu-scroll-row::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 2px;
+      }
+
+      .thu-item {
+        flex: 0 0 auto;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .thu-mini-card {
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        padding: 10px;
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        text-align: left;
+        font-size: 11px;
+        line-height: 1.45;
+        color: #ddd;
+      }
+      .thu-item {
+        cursor: pointer;
+      }
+      .thu-mini-title {
+        margin-top: 12px;
+        font-weight: 700;
+        font-size: 14px;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .thu-mini-fulldate {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+
+      .doc-thu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+      }
+      .doc-thu-box {
+        background: #0d0d0dee;
+        color: #eee;
+        border-radius: 16px;
+        padding: 35px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+      }
+      .doc-thu-tieude {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .doc-thu-ngay {
+        opacity: 0.6;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+      .doc-thu-noidung {
+        font-style: italic;
+        line-height: 1.7;
+        white-space: pre-wrap;
+      }
+      .thu-item {
+        cursor: pointer;
+      }
+      .thu-mini-title {
+        margin-top: 12px;
+        font-weight: 700;
+        font-size: 14px;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .thu-mini-fulldate {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+
+      .doc-thu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+      }
+      .doc-thu-box {
+        background: #0d0d0dee;
+        color: #eee;
+        border-radius: 16px;
+        padding: 35px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        border: solid 1px #ccc;
+      }
+      .doc-thu-tieude {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .doc-thu-ngay {
+        opacity: 0.6;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+      .doc-thu-noidung {
+        font-style: italic;
+        line-height: 1.7;
+        white-space: pre-wrap;
+      }
+
+      .thu-mini-date .ngan {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .thu-mini-date .day {
+        font-size: 13px;
+        opacity: 0.6;
+      }
+
+      .thu-rong {
+        opacity: 0.6;
+        font-style: italic;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper-center">
+      <div class="thu-list-card">
+        <div class="thu-header">
+          <div class="thu-avatar"></div>
+          <div>
+            <h5 class="mb-0" id="tenNguoiDung">...</h5>
+            <small id="soLuongThu" style="opacity: 0.7"></small>
+          </div>
+          <a href="vietthu.html" class="thu-close">&times;</a>
+        </div>
+
+        <h4 class="thu-section-title">Thư gửi bản thân</h4>
+        <div class="thu-scroll-row" id="dsThuRieng"></div>
+
+        <h4 class="thu-section-title">Thư ẩn danh</h4>
+        <div class="thu-scroll-row" id="dsThuAnDanh"></div>
+      </div>
+    </div>
+    <div class="doc-thu-overlay" id="docThuOverlay">
+      <div class="doc-thu-box">
+        <a
+          href="#"
+          class="thu-close"
+          id="dongDocThu"
+          style="position: static; float: right"
+          >&times;</a
+        >
+        <div class="doc-thu-tieude" id="docThuTieuDe"></div>
+        <div class="doc-thu-ngay" id="docThuNgay"></div>
+        <div class="doc-thu-noidung" id="docThuNoiDung"></div>
+      </div>
+    </div>
+    <!-- Kết nối Firebase -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        query,
+        orderBy,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBudkqY2f7ciR6W1w7AITCFM-bPEMB_y-U",
+        authDomain: "thalapsy-efddf.firebaseapp.com",
+        projectId: "thalapsy-efddf",
+        storageBucket: "thalapsy-efddf.firebasestorage.app",
+        messagingSenderId: "396029733407",
+        appId: "1:396029733407:web:ca02c3dc665fbebaf8032a",
+        measurementId: "G-W9Z4KBH4PN",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // Định dạng ngày kiểu "07/05/2025"
+      function ngayDay(d) {
+        const p = (n) => String(n).padStart(2, "0");
+        return (
+          p(d.getDate()) + "/" + p(d.getMonth() + 1) + "/" + d.getFullYear()
+        );
+      }
+
+      function taoTheThu(thu) {
+        const ngay = thu.ngayTao ? thu.ngayTao.toDate() : new Date();
+        const tieuDe = thu.tieuDe || "Không tiêu đề";
+
+        const item = document.createElement("div");
+        item.className = "thu-item";
+        item.innerHTML =
+          '<div class="thu-mini-card">' +
+          thu.noiDung +
+          "</div>" +
+          '<div class="thu-mini-title">' +
+          tieuDe +
+          "</div>" +
+          '<div class="thu-mini-fulldate">' +
+          ngayDay(ngay) +
+          "</div>";
+
+        // Bấm vào thẻ -> mở modal đọc toàn bộ nội dung
+        item.addEventListener("click", function () {
+          document.getElementById("docThuTieuDe").textContent = tieuDe;
+          document.getElementById("docThuNgay").textContent = ngayDay(ngay);
+          document.getElementById("docThuNoiDung").textContent = thu.noiDung;
+          document.getElementById("docThuOverlay").style.display = "flex";
+        });
+
+        return item;
+      }
+
+      onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          window.location.href = "vietthu.html";
+          return;
+        }
+
+        const parts = (user.displayName || "").split(" | ");
+        document.getElementById("tenNguoiDung").textContent =
+          parts[1] || parts[0] || "Bạn";
+
+        const q = query(
+          collection(db, "nguoiDung", user.uid, "thuCuaToi"),
+          orderBy("ngayTao", "desc"),
+        );
+        const ketQua = await getDocs(q);
+
+        document.getElementById("soLuongThu").textContent =
+          ketQua.size + " lá thư";
+
+        const khungRieng = document.getElementById("dsThuRieng");
+        const khungAnDanh = document.getElementById("dsThuAnDanh");
+
+        let coRieng = false;
+        let coAnDanh = false;
+
+        ketQua.forEach((doc) => {
+          const thu = doc.data();
+          if (thu.loai === "an_danh") {
+            khungAnDanh.appendChild(taoTheThu(thu));
+            coAnDanh = true;
+          } else {
+            khungRieng.appendChild(taoTheThu(thu));
+            coRieng = true;
+          }
+        });
+
+        if (!coRieng) {
+          khungRieng.innerHTML =
+            '<p class="thu-rong">Bạn chưa gửi thư nào cho bản thân.</p>';
+        }
+        if (!coAnDanh) {
+          khungAnDanh.innerHTML =
+            '<p class="thu-rong">Bạn chưa gửi thư ẩn danh nào.</p>';
+        }
+      });
+      document
+        .getElementById("dongDocThu")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document.getElementById("docThuOverlay").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
